@@ -12,10 +12,10 @@ function UserComponent() {
   const [isSubmitting, setIsSubmitting] = useState(false);
 
   const [login] = useMutation(LOGIN_MUTATION, {
-    onCompleted: () => {
+    onCompleted: (data) => {
       // Dispatch custom event upon successful login
       window.dispatchEvent(
-        new CustomEvent("loginSuccess", { detail: { isLoggedIn: true } })
+        new CustomEvent("loginSuccess", { detail: { isLoggedIn: data.status } })
       );
     },
     onError: (error) => setAuthError(error.message || "Login failed"),
