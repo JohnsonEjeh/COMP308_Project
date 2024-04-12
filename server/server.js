@@ -1,36 +1,20 @@
-import { ApolloServer } from "apollo-server-express";
-import { ApolloGateway } from "@apollo/gateway";
-
-import configureExpress from "./config/express.js";
-
+﻿// The server.js file is the main file of your Node.js application 
+// It will load the express.js file as a module to bootstrap your Express application
+//
+//The process.env.NODE_ENV variable is set to the default 'development‘
+//value if itdoesn 't exist.
+// Set the 'NODE_ENV' variable
+process.env.NODE_ENV = process.env.NODE_ENV || 'development';
+// Load the module dependencies
+var mongoose = require('./config/mongoose'),
+    express = require('./config/express');
+// Create a new Mongoose connection instance
+var db = mongoose();
 // Create a new Express application instance
-const app = configureExpress();
-
-// Define the port
-const port = process.env.API_GATEWAY_PORT || 4000;
-
-// Configure the Apollo Gateway
-const gateway = new ApolloGateway({
-  serviceList: [
-    { name: "auth", url: "http://localhost:4001/graphql" },
-    { name: "vitalSign", url: "http://localhost:4002/graphql" },
-  ],
-});
-
-// Initialize an Apollo Server with Apollo Gateway
-const server = new ApolloServer({
-  gateway,
-  subscriptions: false,
-});
-
-// Apply the Apollo Server to the Express application
-server.start().then(() => {
-  server.applyMiddleware({ app });
-
-  // Start the Express server
-  app.listen({ port }, () => {
-    console.log(
-      `🚀 Gateway ready at http://localhost:${port}${server.graphqlPath}`
-    );
-  });
-});
+var app = express();
+// Use the Express application instance to listen to the '5000' port
+app.listen(5000);
+// Use the module.exports property to expose our Express application instance for external usage
+module.exports = app; //returns the application object
+// Log the server status to the console
+console.log('Server running at http://localhost:5000/');

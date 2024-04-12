@@ -1,10 +1,7 @@
-// Development configuration options
-// To sign the session identifier, use a secret string
-const config = {
-  authDb: "mongodb://127.0.0.1:27017/lab3-auth-service-db",
-  vitalSignDb: "mongodb://127.0.0.1:27017/lab3-vital-sign-service-db",
+﻿//Development configuration options
+//To sign the session identifier, use a secret string
+module.exports = {
+  db: "mongodb+srv://johnsonejeh02:DLKyZfyzWxMif4lk@cluster0.ox5nfnp.mongodb.net/308-project?retryWrites=true&w=majority",
   sessionSecret: "developmentSessionSecret",
-  secretKey: "developmentSecretKey",
+  secretKey: "real_secret",
 };
-
-export default config;

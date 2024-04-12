@@ -1,43 +1,34 @@
 {
-  "name": "server",
-  "version": "1.0.0",
-  "type": "module",
-  "description": "COMP 308 Assignment 3 Microservices",
+  "name": "express-react-example",
+  "version": "0.0.0",
+  "description": "Express react Example",
   "main": "server.js",
-  "scripts": {
-    "start:auth": "nodemon ./microservices/auth.microservice.js",
-    "start:vitalSign": "nodemon ./microservices/vital-sign.microservice.js",
-    "start:server": "nodemon ./server.js"
+  "author": {
+    "name": "inika",
+    "email": ""
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/longlee10/COMP308-Lab3.git"
-  },
-  "author": "Cong Lanh Hoang",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/longlee10/COMP308-Lab3/issues"
-  },
-  "homepage": "https://github.com/longlee10/COMP308-Lab3#readme",
   "dependencies": {
-    "@apollo/federation": "^0.38.1",
-    "@apollo/gateway": "^2.7.1",
-    "apollo-server-express": "^3.13.0",
-    "bcrypt": "^5.1.1",
-    "body-parser": "^1.19.1",
+    "@tensorflow/tfjs": "^1.7.0",
+    "@tensorflow/tfjs-node": "^1.7.0",
+    "bcrypt": "5.0.1",
+    "body-parser": "^1.19.0",
     "compression": "^1.7.4",
-    "cookie-parser": "^1.4.6",
+    "cookie-parser": "^1.4.4",
     "cors": "^2.8.5",
-    "dotenv": "^16.4.4",
-    "express": "^4.18.3",
-    "express-session": "^1.17.2",
-    "graphql": "^16.8.1",
-    "jsonwebtoken": "^9.0.2",
+    "ejs": "^3.0.1",
+    "express": "^4.17.1",
+    "express-session": "^1.17.0",
+    "jsonwebtoken": "^8.5.1",
     "method-override": "^2.3.10",
-    "mongoose": "^6.12.6",
-    "morgan": "^1.10.0"
+    "mongoose": "^5.12.3",
+    "morgan": "^1.9.1",
+    "seedrandom": "^3.0.5"
   },
   "devDependencies": {
-    "nodemon": "^3.1.0"
+    "nodemon": "^2.0.2"
+  },
+  "scripts": {
+    "start": "nodemon server",
+    "dev": "nodemon server --ignore client"
   }
 }
