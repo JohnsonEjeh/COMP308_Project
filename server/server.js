@@ -4,7 +4,8 @@
 //The process.env.NODE_ENV variable is set to the default 'development‘
 //value if itdoesn 't exist.
 // Set the 'NODE_ENV' variable
-process.env.NODE_ENV = process.env.NODE_ENV || 'development' || 'production';
+console.log("process.env.NODE_ENV: " + process.env.NODE_ENV);
+process.env.NODE_ENV = process.env.NODE_ENV || 'production';
 const dotenv = require("dotenv");
 dotenv.config();
 // Load the module dependencies
