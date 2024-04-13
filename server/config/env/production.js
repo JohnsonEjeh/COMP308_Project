@@ -1,6 +1,11 @@
 
+//Development configuration options
+//To sign the session identifier, use a secret string
+const dotenv = require("dotenv");
+dotenv.config();
+
 module.exports = {
-    db: "mongodb+srv://johnsonejeh02:DLKyZfyzWxMif4lk@cluster0.ox5nfnp.mongodb.net/308-project?retryWrites=true&w=majority",
-    sessionSecret: "developmentSessionSecret",
-    secretKey: "real_secret",
-  };
+  db: process.env.PROJECT_DB,
+  sessionSecret: process.env.SESSION_SECRET,
+  secretKey: process.env.SECRET_KEY,
+};
